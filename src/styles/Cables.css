@@ -1,0 +1,51 @@
+.cable-roj, .cable-azu, .cable-ama, .cable-ver ,.cable-cor ,.cable-resp {
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    width: 170px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: url('../assets/images/tijera_cursor.png'), auto;
+}
+
+.cable-roj {
+    background-image: url("../assets/images/images-cables/cable-rojo.png");
+}
+
+.cable-azu {
+    background-image: url("../assets/images/images-cables/cable-azul.png");
+}
+
+.cable-ama {
+    background-image: url("../assets/images/images-cables/cable-amarillo.png");
+}
+
+.cable-ver {
+    background-image: url("../assets/images/images-cables/cable-verde.png");
+}
+
+.cable-cor {
+    background-image: url("../assets/images/images-cables/cable-cortado.png");
+}
+
+
+.cable-resp {
+
+}
+
+
+.cables-container {
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    margin:auto;
+    width: 170px;
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../assets/images/Cables.png");
+}
+

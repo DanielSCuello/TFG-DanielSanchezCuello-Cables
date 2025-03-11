@@ -1,0 +1,38 @@
+
+
+.modulo {
+  position: relative;
+  display: flex;
+  text-align: center;
+  background-repeat: no-repeat;
+  transform: translateY(40px);
+  gap: 10px;
+  padding: 5px;
+  border-radius: 1px;
+  width: 170px;  
+  height: 300px; 
+}
+
+.luz-roj,.luz-apa,.luz-ver {
+  position: absolute;
+  top: 2px;  
+  right: 2px; 
+  width: 20px; 
+  height: 20px; 
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  object-fit: cover; 
+}
+
+.luz-roj {
+  background-image: url("../assets/images/images-modulo/luz-roja.png");
+}
+
+.luz-apa {
+  background-image: url("../assets/images/images-modulo/luz-apa.png");
+}
+
+.luz-ver {
+  background-image: url("../assets/images/images-modulo/luz-verde.png");
+}
