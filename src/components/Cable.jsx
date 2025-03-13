@@ -7,7 +7,7 @@ function Cable({color, cortado, onCortar}) {
 
   return (
     <div>
-      <div className={cortado ? "cable-cor" : `cable-${color}`}onClick={!cortado ? onCortar : null} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <div className={cortado ? `cable-cor-${color}` : `cable-${color}`}onClick={!cortado ? onCortar : null} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {hover && <img className="cable-resp" />}
       </div>
     </div>

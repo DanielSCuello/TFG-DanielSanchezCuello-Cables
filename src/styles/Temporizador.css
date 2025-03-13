@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'DS-DIGITB';
+    src: url('../assets/fonts/DS-DIGIB.TTF');
+}
+
+.DS-DIGITB {
+    font-family: 'DS-DIGITB', sans-serif;
+}
+
+.clock {
+    transform: translateY(20%);
+    transform: translateX(8%);
+    height: 30px ;
+    width : 140px;
+    font-family: 'DS-DIGITB', monospace;
+    font-size: 20px;
+    color: rgb(8, 10, 8);
+    background: #616f60;
+    border: 3px solid rgb(26, 25, 25);
+}
+

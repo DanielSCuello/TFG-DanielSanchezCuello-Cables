@@ -8,7 +8,7 @@ function Bomba(){
   const [fallado,setFallado] = useState(false);
   const [resuelto,setResuelto] = useState(false);
   const [reinicio, setReinicio] = useState(false);
-  const [modulo, setModulos] = useState(MODULOS_CONFIG.modulos.name);
+  const modulo= MODULOS_CONFIG.modulos.name;
 
 
 
