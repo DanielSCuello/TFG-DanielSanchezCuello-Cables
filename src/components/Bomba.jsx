@@ -27,7 +27,6 @@ function Bomba(){
   
   return (
     <div className="bomba-container">
-      <Mensaje resuelto={resuelto} fallado={fallado}/>
         <div className="bomba">
                 <Modulo tipo={modulo} setBombaResuelto={setResuelto}  setBombaFallada={setFallado} reinicio={reinicio}/>
             <div className="button-container">

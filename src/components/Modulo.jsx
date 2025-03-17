@@ -4,7 +4,7 @@ import Temporizador from "./Temporizador.jsx";
 import Cables from "./ModuloCables.jsx";
 import Tapa from "./Tapa.jsx" 
 
-function Modulo({ tipo ,reinicio ,setBombaFallada,setBombaResuelto}) {
+function Modulo({reinicio ,setBombaFallada,setBombaResuelto}) {
   const [resuelto, setResuelto] = useState(false);
   const [fallado, setFallado] = useState(false);
   const [descubierto, setDescubierto] = useState(false);
@@ -26,8 +26,8 @@ function Modulo({ tipo ,reinicio ,setBombaFallada,setBombaResuelto}) {
   return (
     <div className="modulo">
       <div className={fallado ? "luz-roj" : resuelto ? "luz-ver" : "luz-apa"}/>
-        <Temporizador inicialMinutos={1} resuelto={resuelto}  fallado={fallado} reinicio={reinicio}/>
-        {descubierto ? <Cables setResuelto={setResuelto} fallado={fallado} setFallado={setFallado} reinicio={reinicio}/> : <Tapa setDescubierto={setDescubierto}/>}
+        <Temporizador inicialMinutos={1} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio}/>
+        {descubierto ? <Cables setResuelto={setResuelto} fallado={fallado} setFallado={setFallado} reinicio={reinicio}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
     </div>
   );
 }

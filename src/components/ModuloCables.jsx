@@ -4,12 +4,13 @@ import Cable from "./Cable.jsx";
 import { MODULOS_CONFIG } from "../config/config.js";
 
 function Cables({setResuelto , fallado ,setFallado , reinicio}) {
+  const arraySol = MODULOS_CONFIG.modulos.solucion.split("-");
   const[orden,setOrden]=useState(1);
   const [cables, setCables] = useState([
-    {color: "roj", orden: MODULOS_CONFIG.modulos.roj},
-    {color: "azu", orden: MODULOS_CONFIG.modulos.azu },
-    {color: "ver", orden: MODULOS_CONFIG.modulos.ver },
-    {color: "ama", orden: MODULOS_CONFIG.modulos.ama },
+    {color: "roj"},
+    {color: "azu"},
+    {color: "ver"},
+    {color: "ama"},
   ]);
   
   const cortarCable = (color) => {
@@ -39,13 +40,27 @@ function Cables({setResuelto , fallado ,setFallado , reinicio}) {
   };
 
   useEffect(() => {
-    if (cables.every(cable => cable.cortado)) {
+    if (orden===arraySol.length+1) {
       setResuelto(true);
-      console.log("Esta resuelto");
+      console.log("Todos los cables que tienen 'cortado' están en true.");
     }
   }, [cables]);
+  
 
   useEffect(() => {
+    setCables((prevCables) => 
+      prevCables.map((cable) => {
+        let index = arraySol.indexOf(cable.color);
+        if (index !== -1) {
+          return { ...cable, orden: index + 1 , cortado:false }; 
+        }
+        return cable;
+      })
+    );
+  }, [])
+
+  useEffect(() => {
+    console.log(arraySol);
     setCables((cables) =>
       shuffleArray(
         cables.map((cable) => {
