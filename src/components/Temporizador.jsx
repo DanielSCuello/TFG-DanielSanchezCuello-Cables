@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./../styles/Temporizador.css"; 
 
-function Temporizador({ inicialMinutos ,resuelto,fallado, setFallado ,reinicio}) {
+function Temporizador({ inicialMinutos ,resuelto,fallado, setFallado ,reinicio , descubierto}) {
   const [minutos, setMinutos] = useState(inicialMinutos);
   const [segundos, setSegundos] = useState(0);
   const [segundos2, setSegundos2] = useState(0);
@@ -38,7 +38,7 @@ function Temporizador({ inicialMinutos ,resuelto,fallado, setFallado ,reinicio})
 
   return (
     <div>
-      <h3 className="clock">{minutos} : {segundos} {segundos2}</h3>
+      <h3 className={descubierto ? "temporizador-descubierto": "temporizador"}>{minutos} : {segundos} {segundos2}</h3>
     </div>
   );
 }

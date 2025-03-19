@@ -1,5 +1,20 @@
 
 
+.modulo-descubierto {
+  position: relative;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  margin-top: 30px;
+  transform: translateY(40px);
+  gap: 10px;
+  padding: 5px;
+  border-radius: 1px;
+  width: 340px;  
+  height: 600px; 
+}
+
 .modulo {
   position: relative;
   display: flex;
@@ -15,7 +30,7 @@
   height: 300px; 
 }
 
-.luz-roj,.luz-apa,.luz-ver {
+.luz-roj-principal,.luz-apa-principal,.luz-ver-principal {
   position: absolute;
   top: 2px;  
   right: 2px; 
@@ -27,14 +42,28 @@
   object-fit: cover; 
 }
 
-.luz-roj {
+
+.luz-roj,.luz-apa,.luz-ver {
+  position: absolute;
+  top: 2px;  
+  right: 2px; 
+  width: 40px; 
+  height: 40px; 
+  transform: translateY(-60%);
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  object-fit: cover; 
+}
+
+.luz-roj , .luz-roj-principal{
   background-image: url("../assets/images/images-modulo/luz-roja.png");
 }
 
-.luz-apa {
+.luz-apa , .luz-apa-principal{
   background-image: url("../assets/images/images-modulo/luz-apa.png");
 }
 
-.luz-ver {
+.luz-ver ,.luz-ver-principal{
   background-image: url("../assets/images/images-modulo/luz-verde.png");
 }

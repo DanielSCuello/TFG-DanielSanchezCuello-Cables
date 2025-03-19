@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
-.bomba-container {
-  display: flex;
-  align-items: center; 
-}
 
-.bomba {
+
+.bomba-principal {
   flex-direction: column;
   border-collapse: separate;
   display: flex;
@@ -16,6 +13,19 @@
   background-image: url("../assets/images/bomba-principal.png");
   background-repeat: no-repeat;
   }
+
+  .bomba-modulo {
+    flex-direction: column;
+    border-collapse: separate;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width : 1024px;
+    height: 1024px;
+    background-image: url("../assets/images/bomba-modulo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
 
   .modulos-grid {
     display: grid;
@@ -35,13 +45,13 @@
     position: relative;
     width: 100px;
     height: 100px;
-    transform: translate(0px,-30px);
+    transform: translateY(-20%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
-  .button {
+  .button-principal {
     width: 30px;
     height: 30px;
     background-color: red;  
@@ -61,6 +71,26 @@
     text-transform: uppercase; 
 }
 
+.button-modulo {
+  width: 60px;
+  height: 60px;
+  background-color: red;  
+  border: 2px solid black; 
+  color: black; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px; 
+  padding: 10px 15px;
+  transform: translateY(-40%);
+  font-size: 20px; 
+  font-family: 'Staatliches', sans-serif; 
+  cursor: pointer;
+  transition: 0.3s; 
+  line-height: 1; 
+  text-transform: uppercase; 
+}
 
 button:hover {
     background-color: darkred;
