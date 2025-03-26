@@ -2,58 +2,51 @@
 
 
 
-.bomba-principal {
-  flex-direction: column;
-  border-collapse: separate;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  width : 1024px;
-  height: 1024px;
-  background-image: url("../assets/images/bomba-principal.png");
-  background-repeat: no-repeat;
+  .bomba-principal {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width : 100%;
+    height: 100%;
+    background-image: url("../assets/images/bomba-principal.png");
   }
 
   .bomba-modulo {
-    flex-direction: column;
-    border-collapse: separate;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    width : 1024px;
-    height: 1024px;
+    background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: contain;
+	  display: flex;
+	  flex-direction: column;
+  	align-items: center;
+	  justify-content: center;
+    position: relative;
+    width : 100%;
+    height: 100%;
     background-image: url("../assets/images/bomba-modulo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-
-  .modulos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }  
-
-  .modulo-container{
-    background-color: rgb(25, 26, 27);
-    padding: 10px;
-    border: 1px solid #000;
   }
 
   .button-container{ 
     display: flex;
     justify-content: center; 
     align-items: center;
-    position: relative;
-    width: 100px;
-    height: 100px;
+    position: absolute;
+    width: 10%;
+    height: 10%;
     transform: translateY(-20%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
-  .button-principal {
-    width: 30px;
-    height: 30px;
+  .button-principal  {
+    position: absolute;
+    width: 30%;
+    height: 30%;
     background-color: red;  
     border: 2px solid black; 
     color: black; 
@@ -61,19 +54,20 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 5px; 
-    padding: 10px 15px;
+    border-radius: 10%; 
     font-size: 10px; 
     font-family: 'Staatliches', sans-serif; 
     cursor: pointer;
     transition: 0.3s; 
     line-height: 1; 
+    transform : translateY(500%);
     text-transform: uppercase; 
 }
 
 .button-modulo {
-  width: 60px;
-  height: 60px;
+  position: absolute;
+  width: 60%;
+  height: 60%;
   background-color: red;  
   border: 2px solid black; 
   color: black; 
@@ -82,11 +76,10 @@
   align-items: center;
   text-align: center;
   border-radius: 5px; 
-  padding: 10px 15px;
-  transform: translateY(-40%);
   font-size: 20px; 
   font-family: 'Staatliches', sans-serif; 
   cursor: pointer;
+  transform : translateY(400%);
   transition: 0.3s; 
   line-height: 1; 
   text-transform: uppercase; 

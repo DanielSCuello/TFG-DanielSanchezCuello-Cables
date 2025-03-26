@@ -37,9 +37,7 @@ function Temporizador({ inicialMinutos ,resuelto,fallado, setFallado ,reinicio ,
 
 
   return (
-    <div>
       <h3 className={descubierto ? "temporizador-descubierto": "temporizador"}>{minutos} : {segundos} {segundos2}</h3>
-    </div>
   );
 }
 
