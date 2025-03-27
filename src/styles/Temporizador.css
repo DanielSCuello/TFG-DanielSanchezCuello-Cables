@@ -24,6 +24,7 @@
   
 
 .temporizador-descubierto {
+    position: absolute; 
     width: 80%; 
     height: 10%; 
     transform: translateX(10%);

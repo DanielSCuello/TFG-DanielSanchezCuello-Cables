@@ -7,6 +7,8 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: url('../assets/images/tijera_cursor.png'), auto;
+    pointer-events: all;
+    z-index: 999;
 }
 
 .cable-cor-roj {
@@ -53,7 +55,7 @@
     position: absolute;
     width: 100%;
     height:90%;
-    top: -8%;
+    top:2%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

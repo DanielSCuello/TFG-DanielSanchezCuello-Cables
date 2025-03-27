@@ -1,8 +1,5 @@
-
 import { useState } from "react";
 import "./../styles/Tapa.css";
-
-
 
 function Tapa({setDescubierto}) {
   const [animado, setAnimado] = useState(false);
