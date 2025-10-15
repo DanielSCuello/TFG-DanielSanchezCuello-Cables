@@ -10,7 +10,10 @@ export let GLOBAL_CONFIG = {
   message: "¡Has abierto la puerta! \n Pulsa 'Continuar' para entrar a la nueva sala.",
   url: "https://vishub.org/pictures/20203.png",
   escapp: {
-    endpoint: "https://escape.dit.upm.es/api/escapeRooms/369",
+    endpoint: "https://escapp.es/api/escapeRooms/248",
+    puzzleId: 1,
+    appPuzzleIds: [1],
+    forceValidation: true,
     localStorageKey: "ESCAPP_SAFE_20223a",
     restoreState: "AUTO",
     imagesPath: "/images/",
@@ -25,11 +28,6 @@ export let GLOBAL_CONFIG = {
 export const MODULOS_CONFIG = {
   modulos: {
     solucion: "roj-azu-ama-ver",
-    name: "cables",
-    roj: 1,
-    azu: 2,
-    ama: 3,
-    ver: 4,
   },
   /* modulos: {
      name: "cables",
