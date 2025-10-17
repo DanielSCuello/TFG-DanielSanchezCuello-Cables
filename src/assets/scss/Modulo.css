@@ -1,5 +1,3 @@
-
-
 .modulo-descubierto {
   position: relative;
   display: flex;
@@ -31,15 +29,15 @@
 }
 
 .luz-roj , .luz-roj-principal{
-  background-image: url("../assets/images/images-modulo/luz-roja.png");
+  background-image: url("./images/images-modulo/luz-roja.png");
 }
 
 .luz-apa , .luz-apa-principal{
-  background-image: url("../assets/images/images-modulo/luz-apa.png");
+  background-image: url("./images/images-modulo/luz-apa.png");
 }
 
 .luz-ver ,.luz-ver-principal{
-  background-image: url("../assets/images/images-modulo/luz-verde.png");
+  background-image: url("./images/images-modulo/luz-verde.png");
 }
 
 .tapa-container{

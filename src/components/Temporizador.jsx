@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./../styles/Temporizador.css"; 
+import './../assets/scss/Temporizador.css';
 
 function Temporizador({ inicialMinutos ,resuelto,fallado, setFallado ,reinicio , descubierto}) {
   const [minutos, setMinutos] = useState(inicialMinutos);

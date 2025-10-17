@@ -1,0 +1,64 @@
+.cable-roj, .cable-azu, .cable-ama, .cable-ver ,.cable-cor-roj,.cable-cor-azu,.cable-cor-ama ,.cable-cor-ver ,.cable-resp {
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: url('./images/tijera_cursor.png'), auto;
+    pointer-events: all;
+    z-index: 999;
+}
+
+.cable-cor-roj {
+    background-image: url("./images/images-cables/cablecor-rojo.png");
+}
+
+.cable-cor-azu {
+    background-image: url("./images/images-cables/cablecor-azul.png");
+}
+
+.cable-cor-ama {
+    background-image: url("./images/images-cables/cablecor-amarillo.png");
+}
+
+.cable-cor-ver {
+    background-image: url("./images/images-cables/cablecor-verde.png");
+}
+
+.cable-roj {
+    background-image: url("./images/images-cables/cable-rojo.png");
+}
+
+.cable-azu {
+    background-image: url("./images/images-cables/cable-azul.png");
+}
+
+.cable-ama {
+    background-image: url("./images/images-cables/cable-amarillo.png");
+}
+
+.cable-ver {
+    background-image: url("./images/images-cables/cable-verde.png");
+}
+
+.cable-cor {
+    background-image: url("./images/images-cables/cable-cortado.png");
+}
+
+.cables-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height:90%;
+    top:2%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./images/Cables.png");
+}
+

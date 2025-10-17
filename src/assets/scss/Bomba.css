@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
-
-
   .bomba-principal {
     background-position: center;
     background-repeat: no-repeat;
@@ -13,7 +11,7 @@
     position: relative;
     width : 100%;
     height: 100%;
-    background-image: url("../assets/images/bomba-principal.png");
+    background-image: url("./images/bomba-principal.png");
   }
 
   .bomba-modulo {
@@ -27,7 +25,7 @@
     position: relative;
     width : 100%;
     height: 100%;
-    background-image: url("../assets/images/bomba-modulo.png");
+    background-image: url("./images/bomba-modulo.png");
   }
 
   .button-container{ 
@@ -90,5 +88,3 @@ button:hover {
     background-color: darkred;
     border-color: white;
 }
-
-

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./../styles/Modulo.css";
+import './../assets/scss/Modulo.css';
 import Temporizador from "./Temporizador.jsx";
 import Cables from "./ModuloCables.jsx";
 import Tapa from "./Tapa.jsx" 
@@ -18,4 +18,3 @@ function Modulo({reinicio,fallado ,setFallado,resuelto,setResuelto, descubierto,
 }
 
 export default Modulo;
-

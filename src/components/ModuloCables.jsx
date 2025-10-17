@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import "./../styles/Cables.css";
+import './../assets/scss/Cables.css';
 import Cable from "./Cable.jsx";
-import { MODULOS_CONFIG } from "../config/config.js";
 
 function Cables({setResuelto , fallado ,setFallado , reinicio}) {
-  const arraySol = MODULOS_CONFIG.modulos.solucion.split("-");
+  const arraySol = ["roj","azu","ver","ama"];
   const[orden,setOrden]=useState(1);
   const [cables, setCables] = useState([
     {color: "roj"},

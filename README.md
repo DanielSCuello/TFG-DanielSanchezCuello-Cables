@@ -1,8 +1,3 @@
-# React + Vite
+# Escapp Wired Bomb Puzzle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This software is a web application for creating escape room puzzles for Escapp, an open-source web platform for creating and conducting educational escape rooms whose source code is available at [https://github.com/iglue-project/escapp](https://github.com/iglue-project/escapp).

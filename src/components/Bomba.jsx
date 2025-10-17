@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import Modulo from "./Modulo.jsx";
-import Mensaje from "./Mensaje.jsx";
-import "./../styles/Bomba.css"; 
-import { MODULOS_CONFIG } from "../config/config.js";
+import './../assets/scss/Bomba.css';
 
 function Bomba(){
   const [fallado,setFallado] = useState(false);

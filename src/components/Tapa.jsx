@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./../styles/Tapa.css";
+import './../assets/scss/Tapa.css';
 
 function Tapa({setDescubierto}) {
   const [animado, setAnimado] = useState(false);
@@ -19,7 +19,7 @@ function Tapa({setDescubierto}) {
   }
 
   return (
-    <div className="cable-blurry"><div className={`tapa${animado ? "-fall" : ""}`} onClick={() => {descubrirTapa(); animacionTapa();}} tabindex="0" ></div></div>
+    <div className="cable-blurry"><div className={`tapa${animado ? "-fall" : ""}`} onClick={() => {descubrirTapa(); animacionTapa();}} tabIndex="0" ></div></div>
   );
 }
 

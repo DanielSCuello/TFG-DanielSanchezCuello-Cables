@@ -8,7 +8,7 @@
     height: 600px;
     border: #309e2c 3px;
     transform: translateX(-110px);
-    background-image: url("../assets/images/Defuser_Completo.png");
+    background-image: url("./images/Defuser_Completo.png");
   }
 
   .mensaje {
