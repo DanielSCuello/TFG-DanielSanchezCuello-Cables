@@ -41,6 +41,7 @@ export default function App() {
     }
   }, []);
 
+
   function processAppSettings(_appSettings){
     if(typeof _appSettings !== "object"){
       _appSettings = {};
@@ -217,6 +218,7 @@ export default function App() {
     if(typeof _solution !== "string"){
       return;
     }
+    Utils.log("onKeypadSolved with solution:", solution);
     solution.current = _solution;
 
     switch(appSettings.actionAfterSolve){

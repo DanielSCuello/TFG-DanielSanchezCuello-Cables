@@ -53,12 +53,33 @@
     justify-content: center; 
     align-items: center;
     position: absolute;
-    width: 100%;
+    width: 108%;
     height:90%;
-    top:2%;
+    left: -5%;
+    top:5%;
+    border: 2px solid rgb(37, 36, 36);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("./images/Cables.png");
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px 3px yellow; }
+  50% { box-shadow: 0 0 20px 8px yellow; }
+}
+
+.cable-roj:hover,
+.cable-azu:hover,
+.cable-ama:hover,
+.cable-ver:hover,
+.cable-cor-roj:hover,
+.cable-cor-azu:hover,
+.cable-cor-ama:hover,
+.cable-cor-ver:hover,
+.cable-resp:hover {
+    outline: 3px solid yellow;
+    animation: glow 1s infinite;
+    border-radius: 8px;
 }
 

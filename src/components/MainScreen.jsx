@@ -37,7 +37,7 @@ const MainScreen = (props) => {
   return (
     <div id="screen_main" className={"screen_content"} style={{ backgroundImage: backgroundImage }}>
       <div id="bomb" style={{ width: containerWidth, height: containerHeight }}>
-         <Bomba />
+         <Bomba onKeypadSolved={props.onKeypadSolved} />
       </div>
     </div>);
 };

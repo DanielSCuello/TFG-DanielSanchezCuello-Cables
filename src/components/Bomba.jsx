@@ -2,19 +2,12 @@ import { useState, useEffect } from "react";
 import Modulo from "./Modulo.jsx";
 import './../assets/scss/Bomba.css';
 
-function Bomba(){
-  const [fallado,setFallado] = useState(false);
-  const [resuelto,setResuelto] = useState(false);
+function Bomba({ onKeypadSolved }){
   const [reinicio, setReinicio] = useState(false);
   const [descubierto, setDescubierto] = useState(false);
  
-  useEffect(() => {
-    console.log(resuelto); 
-  }, [resuelto]);
 
   const reiniciarBomba = () => {
-    setResuelto(false);
-    setFallado(false);
     setReinicio(true); 
     setTimeout(() => {
       setReinicio(false); 
@@ -22,8 +15,9 @@ function Bomba(){
   };
   
   return (
+    
     <div className={descubierto ?"bomba-modulo":"bomba-principal"}>
-      <Modulo reinicio={reinicio} resuelto={resuelto} setResuelto={setResuelto} fallado={fallado} setFallado={setFallado} descubierto={descubierto} setDescubierto={setDescubierto}/>
+      <Modulo reinicio={reinicio} setReinicio={setReinicio} descubierto={descubierto} setDescubierto={setDescubierto} onKeypadSolved={onKeypadSolved}/>
         <div className="button-container">
           <button className={descubierto ?"button-modulo":"button-principal"} onClick={reiniciarBomba}>Reinicio</button>
         </div>
