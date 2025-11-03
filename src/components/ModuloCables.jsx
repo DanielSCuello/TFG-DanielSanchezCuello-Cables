@@ -47,7 +47,7 @@ function Cables({ fallado,reinicio, setSolucion }) {
   }, [cablesCortados]);
 
   useEffect(() => {
-    if (orden === arraySol.length + 1) {
+    if (orden === cables.length + 1) {
       const secuenciaFinal = cablesCortados.join("-");
       setSolucion(secuenciaFinal);
       console.log("💣 Puzzle resuelto. Secuencia final:", secuenciaFinal);

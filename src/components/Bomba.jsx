@@ -18,8 +18,8 @@ function Bomba({ onKeypadSolved }){
     
     <div className={descubierto ?"bomba-modulo":"bomba-principal"}>
       <Modulo reinicio={reinicio} setReinicio={setReinicio} descubierto={descubierto} setDescubierto={setDescubierto} onKeypadSolved={onKeypadSolved}/>
-        <div className="button-container">
-          <button className={descubierto ?"button-modulo":"button-principal"} onClick={reiniciarBomba}>Reinicio</button>
+        <div className={descubierto ?"button-container-modulo":"button-container-principal"}>
+          <div className="button-modulo" onClick={reiniciarBomba}></div>
         </div>
       </div>
     );
