@@ -11,7 +11,7 @@
     position: relative;
     width : 100%;
     height: 100%;
-    background-image: url("./images/bomba-principal.png");
+    background-image: url("./images/images-bomba/bomba-principal.png");
   }
 
   .bomba-modulo {
@@ -25,7 +25,7 @@
     position: relative;
     width : 100%;
     height: 100%;
-    background-image: url("./images/bomba-modulo.png");
+    background-image: url("./images/images-bomba/bomba-modulo.png");
   }
 
   .button-container-modulo{ 
@@ -56,7 +56,7 @@
 .button-modulo {
   width: 100%; /* tamaño ajustable */
   height: 100%;
-  background-image: url("./images/boton.png");
+  background-image: url("./images/images-bomba/boton.png");
   background-size: cover;
   background-position: center;
   border: none;
@@ -76,6 +76,6 @@ button:hover {
 }
 
 .button-modulo:active {
-  background-image: url("./images/boton-pulsado.png");
+  background-image: url("./images/images-bomba/boton-pulsado.png");
   transform: scale(0.98); /* opcional: da sensación de “presión” */
 }

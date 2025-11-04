@@ -6,7 +6,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    cursor: url('./images/tijera_cursor.png'), auto;
+    cursor: url('./images/images-cables/tijera_cursor.png'), auto;
     pointer-events: all;
     z-index: 999;
 }
@@ -61,7 +61,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("./images/Cables.png");
+    background-image: url("./images/images-cables/Cables.png");
 }
 
 @keyframes glow {
