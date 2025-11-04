@@ -64,7 +64,7 @@
   font-size: 15px; 
   font-family: 'Staatliches', sans-serif; 
   cursor: pointer;
-  transition: 0.3s; 
+  transition: 0.1s; 
   text-transform: uppercase; 
   display: flex;
   justify-content: center;
