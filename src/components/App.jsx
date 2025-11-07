@@ -147,6 +147,23 @@ export default function App() {
         try {
           Utils.log("ESCAPP validation", success, erState);
           if(success){
+
+            // 1. Calculamos endTime
+            const endTime = new Date(new Date(erState.startTime).getTime() + erState.duration * 1000);
+
+            // 2. Calculamos cuánto falta desde ahora
+            const now = new Date();
+            const remainingMs = endTime - now; // diferencia en milisegundos
+            const remainingSeconds = Math.floor(remainingMs / 1000);
+            const remainingMinutes = Math.floor(remainingSeconds / 60);
+
+            console.log("endTime:", endTime.toISOString());
+            console.log("Falta (ms):", remainingMs);
+            console.log("Falta (s):", remainingSeconds);
+            console.log("Falta (min):", remainingMinutes);
+
+            //TODO...
+
             restoreAppState(erState);
             setLoading(false);
           }
