@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 26%;  
   height: 67%; 
+  transform: translateY(7%);
 }
 
 .modulo {

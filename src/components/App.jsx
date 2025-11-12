@@ -12,6 +12,7 @@ export default function App() {
   const hasExecutedEscappValidation = useRef(false);
   const [loading, setLoading] = useState(true);
   const [screen, setScreen] = useState(MAIN_SCREEN);
+  const [time,setTime]= useState();
   const prevScreen = useRef(screen);
   const solution = useRef(null);
   const [appWidth, setAppWidth] = useState(0);
@@ -162,7 +163,8 @@ export default function App() {
             console.log("Falta (s):", remainingSeconds);
             console.log("Falta (min):", remainingMinutes);
 
-            //TODO...
+            setTime(remainingSeconds);
+
 
             restoreAppState(erState);
             setLoading(false);
@@ -279,7 +281,7 @@ export default function App() {
   let screens = [
     {
       id: MAIN_SCREEN,
-      content: <MainScreen appHeight={appHeight} appWidth={appWidth} onKeypadSolved={onKeypadSolved} />
+      content: <MainScreen appHeight={appHeight} appWidth={appWidth} onKeypadSolved={onKeypadSolved} time={time}  />
     },
     {
       id: MESSAGE_SCREEN,

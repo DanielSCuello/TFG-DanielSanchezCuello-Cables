@@ -1,19 +1,22 @@
 import { useEffect, useState , useContext } from "react";
 import './../assets/scss/Modulo.css';
 import { GlobalContext } from "./GlobalContext";
+import { ESCAPP_APP_SETTINGS } from "./../../config.js";
 import Temporizador from "./Temporizador.jsx";
 import Cables from "./ModuloCables.jsx";
 import Tapa from "./Tapa.jsx" 
 
-function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolved}) {
+function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolved , time}) {
   const { escapp , Utils} = useContext(GlobalContext);
   const [fallado,setFallado] = useState(false);
   const [resuelto,setResuelto] = useState(false);
   const [solucion, setSolucion] = useState([]);
 
   useEffect(() => {
-    setResuelto(false);
-    setFallado(false);
+    if(time>=0){
+      setResuelto(false);
+      setFallado(false);
+    }
     setReinicio(false);
   }, [reinicio]);
 
@@ -42,7 +45,7 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
     if (solucion.length === 0) return;
     if(success){
        setResuelto(true);
-       onKeypadSolved(solucion);
+       onKeypadSolved();
        audio = document.getElementById("bomba_desactivada");
     }
     else{
@@ -58,9 +61,9 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
       <div className={fallado ? `luz-roj${descubierto ? "" : "-principal"}` : resuelto ? `luz-ver${descubierto ? "" : "-principal"}` : `luz-apa${descubierto ? "" : "-principal"}`}/>
       <audio id="bomba_desactivada" src="sounds/bomba_desactivada.mp3" autostart="false" preload="auto" />
       <audio id="solution_nok" src="sounds/solution_nok.mp3" autostart="false" preload="auto" />
-      <Temporizador inicialMinutos={5} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>
+      {ESCAPP_APP_SETTINGS.timer === true && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
       <div className="tapa-container">
-        {descubierto ? <Cables  fallado={fallado} reinicio={reinicio} setSolucion={setSolucion}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
+        {descubierto ? <Cables fallado={fallado} reinicio={reinicio} setSolucion={setSolucion} numCables={ESCAPP_APP_SETTINGS.numberOfWires}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
       </div>
     </div>
   );
