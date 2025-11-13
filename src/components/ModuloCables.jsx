@@ -1,27 +1,12 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect, useContext } from 'react';
 import './../assets/scss/Cables.css';
+import { GlobalContext } from "./GlobalContext";
 import Cable from "./Cable.jsx";
 
-function Cables({ fallado, reinicio, setSolucion, numCables }) {
-  // Lista maestra (orden visual / lógica). Puedes cambiar el contenido o el orden.
-  const ALL_COLORS = [
-    "red",
-    "blue",
-    "green",
-    "yellow",
-    "pink",
-    "grey",
-    "orange",
-    "black"
-  ];
-
-  // Longitud por defecto de la solución (puedes exponer esto como prop si lo necesitas)
-  const SOLUTION_LENGTH = 4;
-
-  // Computamos colores activos según numCables (entre 1 y ALL_COLORS.length)
-  const requested = typeof numCables === "number" && numCables > 0 ? numCables : ALL_COLORS.length;
-  const activeColorsCount = Math.min(requested, ALL_COLORS.length);
-  const activeColorsInitial = ALL_COLORS.slice(0, activeColorsCount);
+function Cables({ fallado, reinicio, setSolution }) {
+  const { appSettings, Utils} = useContext(GlobalContext);
+  const activeColorsCount = appSettings.numberOfWires;
+  const activeColorsInitial = appSettings.colors.slice(0, activeColorsCount);
 
   // Estado
   const [orden, setOrden] = useState(1);
@@ -52,25 +37,14 @@ function Cables({ fallado, reinicio, setSolucion, numCables }) {
   };
 
   useEffect(() => {
-    console.log("NumCables NumCables Cales:", numCables);
-    console.log("Cables Cables Cales:", cables);
-  }, [cables]);
-
-  useEffect(() => {
     if (cablesCortados.length > 0) {
-      const secuencia = cablesCortados.join("-");
-      console.log("Secuencia actual:", secuencia);
+      Utils.log("Secuencia actual:", cablesCortados);
+      if(cablesCortados.length >= appSettings.solutionLength){
+        const solution = cablesCortados.join(";");
+        setSolution(solution);
+      }
     }
   }, [cablesCortados]);
-
-  useEffect(() => {
-    if (orden === cables.length + 1) {
-      const secuenciaFinal = cablesCortados.join(";");
-      setSolucion(secuenciaFinal);
-      console.log("💣 Puzzle resuelto. Secuencia final:", secuenciaFinal);
-    }
-  }, [orden]);
-
 
   useEffect(() => {
     console.log("🔁 Reiniciando módulo...");
@@ -89,5 +63,3 @@ function Cables({ fallado, reinicio, setSolucion, numCables }) {
 }
 
 export default Cables;
-
-

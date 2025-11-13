@@ -5,7 +5,12 @@ function Tapa({setDescubierto}) {
   const [animado, setAnimado] = useState(false);
 
   const animacionTapa = () => {
-    document.getElementById("image").addEventListener("click", function() {this.classList.add("falling");});
+    const img = document.getElementById("image");
+    if (!img) return;
+
+    img.addEventListener("click", function () {
+      this.classList.add("falling");
+    });
   };
   
   function wait(ms) {

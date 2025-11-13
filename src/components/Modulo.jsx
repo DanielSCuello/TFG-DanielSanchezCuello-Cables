@@ -1,16 +1,15 @@
 import { useEffect, useState , useContext } from "react";
 import './../assets/scss/Modulo.css';
 import { GlobalContext } from "./GlobalContext";
-import { ESCAPP_APP_SETTINGS } from "./../../config.js";
 import Temporizador from "./Temporizador.jsx";
 import Cables from "./ModuloCables.jsx";
 import Tapa from "./Tapa.jsx" 
 
 function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolved , time}) {
-  const { escapp , Utils} = useContext(GlobalContext);
+  const { escapp, appSettings, Utils} = useContext(GlobalContext);
   const [fallado,setFallado] = useState(false);
   const [resuelto,setResuelto] = useState(false);
-  const [solucion, setSolucion] = useState([]);
+  const [solution, setSolution] = useState();
 
   useEffect(() => {
     if(time>=0){
@@ -27,8 +26,17 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
   }, []);
 
   useEffect(() => {
-    Utils.log("Check solution", solucion);
-    escapp.submitNextPuzzle(solucion, {}, (success, erState) => {
+    if(typeof solution !== "string"){
+      return;
+    }
+
+    if(solution.split(";").length < appSettings.solutionLength){
+      return;
+    }
+
+    Utils.log("Check solution", solution);
+
+    escapp.submitNextPuzzle(solution, {}, (success, erState) => {
       Utils.log("Check solution Escapp response", success, erState);
       try {
         setTimeout(() => {
@@ -38,11 +46,11 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
         Utils.log("Error in checkNextPuzzle",e);
       }
     });
-  }, [solucion]);
+  }, [solution]);
 
   const changeBoxLight = (success) => {
     let audio;
-    if (solucion.length === 0) return;
+    if (solution.length === 0) return;
     if(success){
        setResuelto(true);
        onKeypadSolved();
@@ -61,9 +69,9 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
       <div className={fallado ? `luz-roj${descubierto ? "" : "-principal"}` : resuelto ? `luz-ver${descubierto ? "" : "-principal"}` : `luz-apa${descubierto ? "" : "-principal"}`}/>
       <audio id="bomba_desactivada" src="sounds/bomba_desactivada.mp3" autostart="false" preload="auto" />
       <audio id="solution_nok" src="sounds/solution_nok.mp3" autostart="false" preload="auto" />
-      {ESCAPP_APP_SETTINGS.timer === true && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
+      {appSettings.timer_enabled === true && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
       <div className="tapa-container">
-        {descubierto ? <Cables fallado={fallado} reinicio={reinicio} setSolucion={setSolucion} numCables={ESCAPP_APP_SETTINGS.numberOfWires}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
+        {descubierto ? <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
       </div>
     </div>
   );
