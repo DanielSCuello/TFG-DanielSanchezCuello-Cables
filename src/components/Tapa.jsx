@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState , useContext } from "react";
+import { GlobalContext } from "./GlobalContext";
 import './../assets/scss/Tapa.css';
 
 function Tapa({setDescubierto}) {
+  const {escapp, appSettings, Utils} = useContext(GlobalContext);
   const [animado, setAnimado] = useState(false);
 
   const animacionTapa = () => {
@@ -24,7 +26,7 @@ function Tapa({setDescubierto}) {
   }
 
   return (
-    <div className="cable-blurry"><div className={`tapa${animado ? "-fall" : ""}`} onClick={() => {descubrirTapa(); animacionTapa();}} tabIndex="0" ></div></div>
+    <div className={`cables-borrosos-${appSettings.numberOfWires}`}><div className={`tapa${animado ? "-fall" : ""}`} onClick={() => {descubrirTapa(); animacionTapa();}} tabIndex="0" ></div></div>
   );
 }
 

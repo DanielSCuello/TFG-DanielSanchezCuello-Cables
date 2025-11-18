@@ -10,11 +10,12 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
   const [fallado,setFallado] = useState(false);
   const [resuelto,setResuelto] = useState(false);
   const [solution, setSolution] = useState();
+  const [solutionActual,setSolutionActual] = useState();
 
   useEffect(() => {
-    if(time>=0){
-      setResuelto(false);
-      setFallado(false);
+    if (!(String(appSettings.timer).toLowerCase() === "true")|| time >= 0) {
+    setResuelto(false);
+    setFallado(false);
     }
     setReinicio(false);
   }, [reinicio]);
@@ -69,9 +70,9 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
       <div className={fallado ? `luz-roj${descubierto ? "" : "-principal"}` : resuelto ? `luz-ver${descubierto ? "" : "-principal"}` : `luz-apa${descubierto ? "" : "-principal"}`}/>
       <audio id="bomba_desactivada" src="sounds/bomba_desactivada.mp3" autostart="false" preload="auto" />
       <audio id="solution_nok" src="sounds/solution_nok.mp3" autostart="false" preload="auto" />
-      {appSettings.timer_enabled === true && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
+      {String(appSettings.timer).toLowerCase() === "true" && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
       <div className="tapa-container">
-        {descubierto ? <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
+        {descubierto ? <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} solutionActual={solutionActual} setSolutionActual={setSolutionActual}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
       </div>
     </div>
   );

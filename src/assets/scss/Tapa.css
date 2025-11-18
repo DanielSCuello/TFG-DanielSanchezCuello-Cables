@@ -35,7 +35,11 @@
     }
 }
 
-.cable-blurry{
+.cables-borrosos-4,
+.cables-borrosos-5,
+.cables-borrosos-6,
+.cables-borrosos-7,
+.cables-borrosos-8{
     justify-content: center; 
     align-items: center;
     position: relative;
@@ -45,5 +49,40 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("./images/images-bomba/cables-borrosos.png");
 }
+
+.cables-borrosos-4 {
+  background-image: url("./images/images-bomba/cables-borrosos-4.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.cables-borrosos-5 {
+  background-image: url("./images/images-bomba/cables-borrosos-5.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.cables-borrosos-6 {
+  background-image: url("./images/images-bomba/cables-borrosos-6.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.cables-borrosos-7 {
+  background-image: url("./images/images-bomba/cables-borrosos-7.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.cables-borrosos-8 {
+  background-image: url("./images/images-bomba/cables-borrosos-8.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+

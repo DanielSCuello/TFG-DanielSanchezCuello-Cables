@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState ,useContext } from "react";
 import Modulo from "./Modulo.jsx";
+import { GlobalContext } from "./GlobalContext";
 import './../assets/scss/Bomba.css';
 
 function Bomba({ onKeypadSolved, time }) {
+  const { escapp, appSettings, Utils} = useContext(GlobalContext);
   const [reinicio, setReinicio] = useState(false);
   const [descubierto, setDescubierto] = useState(false);
 
@@ -11,15 +13,12 @@ function Bomba({ onKeypadSolved, time }) {
     setTimeout(() => setReinicio(false), 100);
   };
 
-  // Handler para cuando se hace click en la zona lateral "fondo"
   const handleZonaClick = (e) => {
-    // seguridad: evitar cambiar si el click viene de un hijo sobrescrito (no necesario si las zonas son independientes)
     setDescubierto(false);
   };
 
   return (
-    <div className={descubierto ? "bomba-modulo" : "bomba-principal"}>
-      {/* Zonas laterales invisibles — solo renderizarlas cuando estamos en modo 'descubierto' */}
+    <div className={descubierto ? "bomba-modulo" : (appSettings.background === "NONE" ? "bomba-principal" : "bomba-principal-background")}>
       {descubierto && (
         <>
           <div className="bomba-modulo-back-izq"  onClick={handleZonaClick}/>

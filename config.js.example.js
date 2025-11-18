@@ -9,14 +9,14 @@ export let ESCAPP_APP_SETTINGS = {
   //Number of wires
   numberOfWires: 5,
 
-  timer: "FALSE",
+  timer: "TRUE",
 
   //Settings that will be automatically specified by the Escapp server
   //solutionLength: 4, // If solutionLength is not specified, it will automatically be set to numberOfWires.
-  locale:"es",
+  locale: "es",
 
   escappClientSettings: {
-    endpoint:"https://escapp.es/api/escapeRooms/id",
+    endpoint: "https://escapp.es/api/escapeRooms/id",
     linkedPuzzleIds: [1],
     rtc: false,
     preview: false
