@@ -8,6 +8,7 @@ export let ESCAPP_APP_SETTINGS = {
 
   //Number of wires
   numberOfWires: 5,
+  //solutionLength: 5,
 
   timer: "TRUE",
 
