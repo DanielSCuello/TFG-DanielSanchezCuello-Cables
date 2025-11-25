@@ -7,7 +7,6 @@
   font-family: 'DS-DIGITB', sans-serif;
 }
 
-/* CONTENEDOR GENERAL */
 .temporizador{
   position: absolute;
   width: 75%;
@@ -45,7 +44,6 @@
   border: 0.3vw solid rgb(26, 25, 25);
 }
 
-/* CONTENEDOR DE LOS DÍGITOS */
 .digitos-container {
   display: flex;
   align-items: center;
@@ -55,10 +53,9 @@
   height: 100%;
 }
 
-/* DÍGITO BASE - tamaño relativo al contenedor */
 .digit {
-  flex: 1; /* reparte proporcionalmente el espacio */
-  height: 80%; /* altura relativa al contenedor */
+  flex: 1; 
+  height: 80%; 
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -76,18 +73,16 @@
 .digit-8 { background-image: url("/images/images-numeros/ocho.png"); }
 .digit-9 { background-image: url("/images/images-numeros/nueve.png"); }
 
-/* === DOS PUNTOS - tamaño normal === */
 .temporizador .colon {
-  font-size: 3vh;  /* tamaño relativo a la ventana o contenedor */
+  font-size: 3vh;  
   font-weight: bold;
   font-family: monospace;
   margin: 0 1%;
   transition: opacity 0.2s;
 }
 
-/* === DOS PUNTOS - tamaño grande (modo descubierto) === */
 .temporizador-descubierto .colon {
-  font-size: 6vh;  /* más grande */
+  font-size: 6vh;  
   font-weight: bold;
   font-family: monospace;
   margin: 0 1%;

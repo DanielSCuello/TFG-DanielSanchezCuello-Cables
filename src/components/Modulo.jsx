@@ -2,8 +2,7 @@ import { useEffect, useState , useContext } from "react";
 import './../assets/scss/Modulo.css';
 import { GlobalContext } from "./GlobalContext";
 import Temporizador from "./Temporizador.jsx";
-import Cables from "./ModuloCables.jsx";
-import Tapa from "./Tapa.jsx" 
+import Cables from "./ModuloCables.jsx" 
 
 function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolved , time}) {
   const { escapp, appSettings, Utils} = useContext(GlobalContext);
@@ -17,6 +16,7 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
     setResuelto(false);
     setFallado(false);
     }
+    setSolutionActual("");
     setReinicio(false);
   }, [reinicio]);
 
@@ -71,9 +71,7 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
       <audio id="bomba_desactivada" src="sounds/bomba_desactivada.mp3" autostart="false" preload="auto" />
       <audio id="solution_nok" src="sounds/solution_nok.mp3" autostart="false" preload="auto" />
       {String(appSettings.timer).toLowerCase() === "true" && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
-      <div className="tapa-container">
-        {descubierto ? <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} solutionActual={solutionActual} setSolutionActual={setSolutionActual}/> : <Tapa setDescubierto={setDescubierto} descubierto={descubierto}/>}
-      </div>
+      <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} solutionActual={solutionActual} setSolutionActual={setSolutionActual} setDescubierto={setDescubierto} descubierto={descubierto}/>
     </div>
   );
 }

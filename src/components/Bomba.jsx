@@ -18,7 +18,7 @@ function Bomba({ onKeypadSolved, time }) {
   };
 
   return (
-    <div className={descubierto ? "bomba-modulo" : (appSettings.background === "NONE" ? "bomba-principal" : "bomba-principal-background")}>
+    <div className={descubierto ? "bomba-modulo" : (appSettings.background === "" ? "bomba-principal-background" : "bomba-principal")}>
       {descubierto && (
         <>
           <div className="bomba-modulo-back-izq"  onClick={handleZonaClick}/>

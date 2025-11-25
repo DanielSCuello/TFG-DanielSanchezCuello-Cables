@@ -1,8 +1,11 @@
 import { useState , useContext } from "react";
 import { GlobalContext } from "./GlobalContext";
+import Cables from "./ModuloCables.jsx";
 import './../assets/scss/Tapa.css';
+import './../assets/scss/Bomba.css';
 
-function Tapa({setDescubierto}) {
+
+function Tapa({fallado, reinicio, setSolution, solutionActual, setSolutionActual , setDescubierto , descubierto}) {
   const {escapp, appSettings, Utils} = useContext(GlobalContext);
   const [animado, setAnimado] = useState(false);
 
@@ -26,8 +29,10 @@ function Tapa({setDescubierto}) {
   }
 
   return (
-    <div className={`cables-borrosos-${appSettings.numberOfWires}`}><div className={`tapa${animado ? "-fall" : ""}`} onClick={() => {descubrirTapa(); animacionTapa();}} tabIndex="0" ></div></div>
-  );
+    <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} solutionActual={solutionActual} setSolutionActual={setSolutionActual} descubierto={descubierto}>
+      <div className={`tapa${animado ? "-fall" : ""}`} onClick={() => { descubrirTapa(); animacionTapa(); }} tabIndex="0"/>
+    </Cables>
+);
 }
 
 export default Tapa;

@@ -10,7 +10,7 @@ function Cable({ color, cortado, onCortar }) {
   }, []);
 
   return (
-    <div className={cortado ? `cable-cor-${color}` : `cable-${color}`} onClick={!cortado ? onCortar : null} style={{  transform: girado ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease", }}
+    <div className={cortado ? `cable-cor-${color}` : `cable-${color}`} onClick={!cortado ? onCortar : null} style={{  transform: girado ? "rotate(180deg)" : "rotate(0deg)", }}
     ></div>
   );
 }

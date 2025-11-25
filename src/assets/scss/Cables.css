@@ -1,5 +1,11 @@
-.cable-red, .cable-black,.cable-grey,.cable-orange,.cable-blue, .cable-yellow, .cable-green,.cable-pink ,.cable-cor-pink,.cable-cor-orange,.cable-cor-grey,.cable-cor-black,.cable-cor-red,.cable-cor-blue,.cable-cor-yellow ,.cable-cor-green ,.cable-resp {
-    justify-content: center; 
+
+.cable-red, .cable-black, .cable-grey, .cable-orange, .cable-blue,
+.cable-yellow, .cable-green, .cable-pink,
+.cable-cor-pink, .cable-cor-orange, .cable-cor-grey, .cable-cor-black,
+.cable-cor-red, .cable-cor-blue, .cable-cor-yellow, .cable-cor-green,
+.cable-resp {
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: 90%;
     height: 40%;
@@ -8,97 +14,131 @@
     background-repeat: no-repeat;
     cursor: url('./images/images-cables/tijera_cursor.png'), auto;
     pointer-events: all;
-    z-index: 999;
+    z-index: 1; /* cables debajo de la tapa */
 }
 
-.cable-cor-red {
-    background-image: url("./images/images-cables/cablecor-red.png");
-}
+.cable-cor-red    { background-image: url("./images/images-cables/cablecor-red.png"); }
+.cable-cor-blue   { background-image: url("./images/images-cables/cablecor-blue.png"); }
+.cable-cor-yellow { background-image: url("./images/images-cables/cablecor-yellow.png"); }
+.cable-cor-green  { background-image: url("./images/images-cables/cablecor-green.png"); }
+.cable-cor-black  { background-image: url("./images/images-cables/cablecor-black.png"); }
+.cable-cor-pink   { background-image: url("./images/images-cables/cablecor-pink.png"); }
+.cable-cor-orange { background-image: url("./images/images-cables/cablecor-orange.png"); }
+.cable-cor-grey   { background-image: url("./images/images-cables/cablecor-grey.png"); }
 
-.cable-cor-blue {
-    background-image: url("./images/images-cables/cablecor-blue.png");
-}
-
-.cable-cor-yellow {
-    background-image: url("./images/images-cables/cablecor-yellow.png");
-}
-
-.cable-cor-green {
-    background-image: url("./images/images-cables/cablecor-green.png");
-}
-
-.cable-cor-black {
-    background-image: url("./images/images-cables/cablecor-black.png");
-}
-
-.cable-cor-pink {
-    background-image: url("./images/images-cables/cablecor-pink.png");
-}
-
-.cable-cor-orange {
-    background-image: url("./images/images-cables/cablecor-orange.png");
-}
-
-.cable-cor-grey {
-    background-image: url("./images/images-cables/cablecor-grey.png");
-}
-
-.cable-red {
-    background-image: url("./images/images-cables/cable-red.png");
-}
-
-.cable-blue {
-    background-image: url("./images/images-cables/cable-blue.png");
-}
-
-
-.cable-black {
-    background-image: url("./images/images-cables/cable-black.png");
-}
-
-.cable-pink {
-    background-image: url("./images/images-cables/cable-pink.png");
-}
-
-.cable-orange {
-    background-image: url("./images/images-cables/cable-orange.png");
-}
-
-.cable-grey {
-    background-image: url("./images/images-cables/cable-grey.png");
-}
-
-.cable-yellow {
-    background-image: url("./images/images-cables/cable-yellow.png");
-}
-
-.cable-green {
-    background-image: url("./images/images-cables/cable-green.png");
-}
+.cable-red    { background-image: url("./images/images-cables/cable-red.png"); }
+.cable-blue   { background-image: url("./images/images-cables/cable-blue.png"); }
+.cable-black  { background-image: url("./images/images-cables/cable-black.png"); }
+.cable-pink   { background-image: url("./images/images-cables/cable-pink.png"); }
+.cable-orange { background-image: url("./images/images-cables/cable-orange.png"); }
+.cable-grey   { background-image: url("./images/images-cables/cable-grey.png"); }
+.cable-yellow { background-image: url("./images/images-cables/cable-yellow.png"); }
+.cable-green  { background-image: url("./images/images-cables/cable-green.png"); }
 
 .cable-cor {
     background-image: url("./images/images-cables/cable-cortado.png");
 }
 
+.cables-container-superpuesto {
+  position: relative;        
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+}
+
+.modulo-centro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    top: 30%;
+
+    position: relative;
+    width: 92%;
+    height: 50%;
+}
+
 .cables-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    position: absolute;
-    width: 108%;
-    height:95%;
-    left: -5%;
-    top:2%;
+
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("./images/images-cables/Cables.png");
 }
 
+.cables-container-tapa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    top: 5%;
+
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    filter: blur(0.2px);
+
+    pointer-events: none;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./images/images-cables/Cables.png");
+}
+
+.tapa-superpuesta {
+    position: absolute;
+    top: 5%;
+    left: 0;
+
+    width: 100%;
+    height: 110%;
+
+    z-index: 10;  
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./images/images-bomba/Tapa.png");
+
+    cursor: pointer;
+}
+
+.tapa-fall {
+    animation: fall 2s ease-in-out forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200px);
+        opacity: 0.5; 
+    }
+}
+
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 10px 3px yellow; }
-  50% { box-shadow: 0 0 20px 8px yellow; }
+  0% {box-shadow: 0 0 4px 2px rgba(255, 255, 0, 0.4);
+  }
+  50% {box-shadow: 0 0 12px 6px rgba(255, 255, 0, 0.9);
+  }
+  100% {box-shadow: 0 0 4px 2px rgba(255, 255, 0, 0.4);
+  }
 }
 
 .cable-red:hover,
@@ -118,8 +158,7 @@
 .cable-cor-orange:hover,
 .cable-cor-black:hover,
 .cable-resp:hover {
-    outline: 3px solid yellow;
+    outline: 1px solid yellow;
     animation: glow 1s infinite;
     border-radius: 8px;
 }
-

@@ -3,13 +3,13 @@ import "./../assets/scss/Cables.css";
 import { GlobalContext } from "./GlobalContext";
 import Cable from "./Cable.jsx";
 
-function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionActual }) {
+function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionActual, descubierto, setDescubierto}) {
   const { appSettings, Utils } = useContext(GlobalContext);
   const activeColorsCount = appSettings.numberOfWires;
   const activeColorsInitial = appSettings.colors.slice(0, activeColorsCount);
 
-  // Estado interno del módulo
   const [orden, setOrden] = useState(1);
+  const [animado, setAnimado] = useState(false);
   const [cables, setCables] = useState(
     activeColorsInitial.map((color, index) => ({
       id: index + 1,
@@ -39,6 +39,19 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
     );
   };
 
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function descubrirTapa() {
+    console.log("Descubierto"+ descubierto)
+    if (descubierto) return;
+    console.log("Descubierto"+ descubierto)
+    setAnimado(true);
+    await wait(1200);
+    setAnimado(false);
+    setDescubierto(true);
+  }
 
   useEffect(() => {
     if (setSolutionActual) {
@@ -51,10 +64,14 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
         setSolution(solution);
       }
     }
-  }, [cablesCortados, setSolutionActual, setSolution, Utils, appSettings.solutionLength]);
+  }, [cablesCortados]);
 
   useEffect(() => {
-    if (!solutionActual || !Array.isArray(solutionActual) || solutionActual.length === 0) {
+    if (
+      !solutionActual ||
+      !Array.isArray(solutionActual) ||
+      solutionActual.length === 0
+    ) {
       return;
     }
     Utils.log("Restaurando cables cortados desde solutionActual:", solutionActual);
@@ -66,7 +83,7 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
     );
     setCablesCortados(solutionActual);
     setOrden(solutionActual.length + 1);
-  }, [solutionActual, Utils]);
+  }, [solutionActual]);
 
   useEffect(() => {
     if (!reinicio) return;
@@ -80,15 +97,19 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
     if (setSolutionActual) {
       setSolutionActual([]);
     }
-  }, [reinicio, setSolutionActual, Utils]);
+  }, [reinicio]);
 
   return (
-    <div className="cables-container">
+  <div className={"modulo-centro"}>
+    <div className={descubierto ? "cables-container" : "cables-container-tapa"}>
       {cables.map((cable) => (
-        <Cable key={cable.id} color={cable.color} cortado={cable.cortado} onCortar={() => cortarCable(cable.id)}/>
-      ))}
+        <Cable key={cable.id} color={cable.color} cortado={cable.cortado} onCortar={() => cortarCable(cable.id)}/>))}
     </div>
-  );
+    {!descubierto && (<div className={`tapa-superpuesta ${animado ? "tapa-fall" : ""}`} onClick={descubrirTapa} tabIndex="0"/>)}
+  </div>
+);
+
 }
 
 export default Cables;
+
