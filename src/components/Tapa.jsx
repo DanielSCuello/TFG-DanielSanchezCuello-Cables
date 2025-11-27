@@ -5,7 +5,7 @@ import './../assets/scss/Tapa.css';
 import './../assets/scss/Bomba.css';
 
 
-function Tapa({fallado, reinicio, setSolution, solutionActual, setSolutionActual , setDescubierto , descubierto}) {
+function Tapa({fallado, reinicio, setSolution , setDescubierto , descubierto}) {
   const {escapp, appSettings, Utils} = useContext(GlobalContext);
   const [animado, setAnimado] = useState(false);
 
@@ -29,7 +29,7 @@ function Tapa({fallado, reinicio, setSolution, solutionActual, setSolutionActual
   }
 
   return (
-    <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} solutionActual={solutionActual} setSolutionActual={setSolutionActual} descubierto={descubierto}>
+    <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution}  descubierto={descubierto}>
       <div className={`tapa${animado ? "-fall" : ""}`} onClick={() => { descubrirTapa(); animacionTapa(); }} tabIndex="0"/>
     </Cables>
 );
