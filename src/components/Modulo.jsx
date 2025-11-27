@@ -9,14 +9,14 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
   const [fallado,setFallado] = useState(false);
   const [resuelto,setResuelto] = useState(false);
   const [solution, setSolution] = useState();
-  const [solutionActual,setSolutionActual] = useState();
+
 
   useEffect(() => {
     if (!(String(appSettings.timer).toLowerCase() === "true")|| time >= 0) {
     setResuelto(false);
     setFallado(false);
     }
-    setSolutionActual("");
+   
     setReinicio(false);
   }, [reinicio]);
 
@@ -71,7 +71,7 @@ function Modulo({reinicio,setReinicio, descubierto,setDescubierto, onKeypadSolve
       <audio id="bomba_desactivada" src="sounds/bomba_desactivada.mp3" autostart="false" preload="auto" />
       <audio id="solution_nok" src="sounds/solution_nok.mp3" autostart="false" preload="auto" />
       {String(appSettings.timer).toLowerCase() === "true" && <Temporizador inicialSegundos={time} resuelto={resuelto} setFallado={setFallado} fallado={fallado} reinicio={reinicio} descubierto={descubierto}/>}
-      <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} solutionActual={solutionActual} setSolutionActual={setSolutionActual} setDescubierto={setDescubierto} descubierto={descubierto}/>
+      <Cables fallado={fallado} reinicio={reinicio} setSolution={setSolution} setDescubierto={setDescubierto} descubierto={descubierto}/>
     </div>
   );
 }

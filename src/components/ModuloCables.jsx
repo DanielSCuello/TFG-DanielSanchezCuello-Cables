@@ -3,7 +3,7 @@ import "./../assets/scss/Cables.css";
 import { GlobalContext } from "./GlobalContext";
 import Cable from "./Cable.jsx";
 
-function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionActual, descubierto, setDescubierto}) {
+function Cables({ fallado, reinicio, setSolution, descubierto, setDescubierto}) {
   const { appSettings, Utils } = useContext(GlobalContext);
   const activeColorsCount = appSettings.numberOfWires;
   const activeColorsInitial = appSettings.colors.slice(0, activeColorsCount);
@@ -54,9 +54,6 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
   }
 
   useEffect(() => {
-    if (setSolutionActual) {
-      setSolutionActual(cablesCortados);
-    }
     if (cablesCortados.length > 0) {
       Utils.log("Secuencia actual (nº de cable):", cablesCortados);
       if (cablesCortados.length >= appSettings.solutionLength) {
@@ -66,24 +63,7 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
     }
   }, [cablesCortados]);
 
-  useEffect(() => {
-    if (
-      !solutionActual ||
-      !Array.isArray(solutionActual) ||
-      solutionActual.length === 0
-    ) {
-      return;
-    }
-    Utils.log("Restaurando cables cortados desde solutionActual:", solutionActual);
-    setCables((prevCables) =>
-      prevCables.map((cable) => ({
-        ...cable,
-        cortado: solutionActual.includes(cable.id),
-      }))
-    );
-    setCablesCortados(solutionActual);
-    setOrden(solutionActual.length + 1);
-  }, [solutionActual]);
+
 
   useEffect(() => {
     if (!reinicio) return;
@@ -94,9 +74,6 @@ function Cables({ fallado, reinicio, setSolution, solutionActual, setSolutionAct
     setCablesCortados([]);
     setCables((prev) => prev.map((c) => ({ ...c, cortado: false })));
 
-    if (setSolutionActual) {
-      setSolutionActual([]);
-    }
   }, [reinicio]);
 
   return (
