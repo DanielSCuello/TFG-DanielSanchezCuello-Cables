@@ -57,7 +57,7 @@
   background-size: contain;
 }
 
-/* MAPA DE IMÁGENES */
+
 .digit-0 { background-image: url("/images/images-numeros/cero.png"); }
 .digit-1 { background-image: url("/images/images-numeros/uno.png"); }
 .digit-2 { background-image: url("/images/images-numeros/dos.png"); }
